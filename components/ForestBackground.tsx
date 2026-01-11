@@ -8,26 +8,27 @@ export default function ForestBackground() {
       
       {/* Gwiazdy */}
       <div className="absolute inset-0">
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-70" style={{left: '5%', top: '10%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-50" style={{left: '15%', top: '20%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-80" style={{left: '25%', top: '5%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-60" style={{left: '35%', top: '25%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-70" style={{left: '45%', top: '15%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-90" style={{left: '55%', top: '8%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-50" style={{left: '65%', top: '30%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-75" style={{left: '75%', top: '12%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-65" style={{left: '85%', top: '22%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-80" style={{left: '95%', top: '18%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-70" style={{left: '10%', top: '35%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-60" style={{left: '20%', top: '45%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-85" style={{left: '30%', top: '40%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-55" style={{left: '40%', top: '50%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-75" style={{left: '50%', top: '35%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-65" style={{left: '60%', top: '48%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-80" style={{left: '70%', top: '42%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-70" style={{left: '80%', top: '38%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-90" style={{left: '90%', top: '46%'}} />
-        <div className="absolute w-1 h-1 bg-white rounded-full opacity-60" style={{left: '12%', top: '55%'}} />
+ <div className="absolute w-1 h-1 bg-white rounded-full opacity-70 star star-slow" style={{ left: '5%', top: '10%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-50 star" style={{ left: '15%', top: '20%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-80 star star-fast" style={{ left: '25%', top: '5%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-60 star" style={{ left: '35%', top: '25%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-70 star star-slow" style={{ left: '45%', top: '15%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-90 star star-fast" style={{ left: '55%', top: '8%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-50 star" style={{ left: '65%', top: '30%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-75 star star-slow" style={{ left: '75%', top: '12%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-65 star" style={{ left: '85%', top: '22%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-80 star star-fast" style={{ left: '95%', top: '18%' }} />
+
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-70 star" style={{ left: '10%', top: '35%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-60 star star-slow" style={{ left: '20%', top: '45%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-85 star" style={{ left: '30%', top: '40%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-55 star star-fast" style={{ left: '40%', top: '50%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-75 star" style={{ left: '50%', top: '35%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-65 star star-slow" style={{ left: '60%', top: '48%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-80 star" style={{ left: '70%', top: '42%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-70 star star-fast" style={{ left: '80%', top: '38%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-90 star star-slow" style={{ left: '90%', top: '46%' }} />
+  <div className="absolute w-1 h-1 bg-white rounded-full opacity-60 star" style={{ left: '12%', top: '55%' }} />
       </div>
       
       {/* Mgła */}
