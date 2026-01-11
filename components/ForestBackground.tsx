@@ -13,7 +13,12 @@ export default function ForestBackground() {
   useEffect(() => {
     const update = () => {
       const now = new Date()
-      setIsNight(isNightByHour(now.getHours()))
+      const night = isNightByHour(now.getHours())
+      setIsNight(night)
+
+      // >>> TO ZMIENIA KOLORY NAPISÓW (na całej stronie)
+      document.body.classList.toggle('theme-night', night)
+      document.body.classList.toggle('theme-day', !night)
     }
 
     update()

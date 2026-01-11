@@ -118,3 +118,15 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .sun-glow { animation: none; }
 }
+/* ===== THEME TEXT COLORS ===== */
+body.theme-night {
+  color: #f1f5f9;
+}
+
+body.theme-day {
+  color: #0f172a;
+}
+
+/* opcjonalnie: linki */
+body.theme-night a { color: #e2e8f0; }
+body.theme-day a { color: #0f172a; }
