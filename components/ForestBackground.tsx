@@ -8,28 +8,69 @@ export default function ForestBackground() {
       
       {/* Gwiazdy */}
       <div className="absolute inset-0">
- <div className="absolute w-1 h-1 bg-white rounded-full opacity-70 star star-slow" style={{ left: '5%', top: '10%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-50 star" style={{ left: '15%', top: '20%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-80 star star-fast" style={{ left: '25%', top: '5%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-60 star" style={{ left: '35%', top: '25%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-70 star star-slow" style={{ left: '45%', top: '15%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-90 star star-fast" style={{ left: '55%', top: '8%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-50 star" style={{ left: '65%', top: '30%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-75 star star-slow" style={{ left: '75%', top: '12%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-65 star" style={{ left: '85%', top: '22%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-80 star star-fast" style={{ left: '95%', top: '18%' }} />
+  {[
+    { left: '5%', top: '10%', o: 0.70 },
+    { left: '15%', top: '20%', o: 0.50 },
+    { left: '25%', top: '5%', o: 0.80 },
+    { left: '35%', top: '25%', o: 0.60 },
+    { left: '45%', top: '15%', o: 0.70 },
+    { left: '55%', top: '8%', o: 0.90 },
+    { left: '65%', top: '30%', o: 0.50 },
+    { left: '75%', top: '12%', o: 0.75 },
+    { left: '85%', top: '22%', o: 0.65 },
+    { left: '95%', top: '18%', o: 0.80 },
+    { left: '10%', top: '35%', o: 0.70 },
+    { left: '20%', top: '45%', o: 0.60 },
+    { left: '30%', top: '40%', o: 0.85 },
+    { left: '40%', top: '50%', o: 0.55 },
+    { left: '50%', top: '35%', o: 0.75 },
+    { left: '60%', top: '48%', o: 0.65 },
+    { left: '70%', top: '42%', o: 0.80 },
+    { left: '80%', top: '38%', o: 0.70 },
+    { left: '90%', top: '46%', o: 0.90 },
+    { left: '12%', top: '55%', o: 0.60 },
 
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-70 star" style={{ left: '10%', top: '35%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-60 star star-slow" style={{ left: '20%', top: '45%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-85 star" style={{ left: '30%', top: '40%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-55 star star-fast" style={{ left: '40%', top: '50%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-75 star" style={{ left: '50%', top: '35%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-65 star star-slow" style={{ left: '60%', top: '48%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-80 star" style={{ left: '70%', top: '42%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-70 star star-fast" style={{ left: '80%', top: '38%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-90 star star-slow" style={{ left: '90%', top: '46%' }} />
-  <div className="absolute w-1 h-1 bg-white rounded-full opacity-60 star" style={{ left: '12%', top: '55%' }} />
-      </div>
+    /* DODATKOWE GWIAZDY (więcej niż wcześniej) */
+    { left: '8%', top: '18%', o: 0.55 },
+    { left: '18%', top: '8%', o: 0.65 },
+    { left: '22%', top: '28%', o: 0.50 },
+    { left: '28%', top: '18%', o: 0.75 },
+    { left: '33%', top: '10%', o: 0.60 },
+    { left: '38%', top: '6%', o: 0.70 },
+    { left: '42%', top: '32%', o: 0.55 },
+    { left: '48%', top: '26%', o: 0.65 },
+    { left: '52%', top: '18%', o: 0.80 },
+    { left: '58%', top: '22%', o: 0.60 },
+    { left: '62%', top: '12%', o: 0.70 },
+    { left: '68%', top: '8%', o: 0.55 },
+    { left: '72%', top: '28%', o: 0.65 },
+    { left: '78%', top: '20%', o: 0.75 },
+    { left: '82%', top: '8%', o: 0.60 },
+    { left: '88%', top: '14%', o: 0.70 },
+    { left: '92%', top: '30%', o: 0.55 },
+    { left: '6%', top: '42%', o: 0.65 },
+    { left: '16%', top: '38%', o: 0.75 },
+    { left: '26%', top: '52%', o: 0.60 },
+    { left: '36%', top: '44%', o: 0.70 },
+    { left: '46%', top: '56%', o: 0.55 },
+    { left: '56%', top: '40%', o: 0.65 },
+    { left: '66%', top: '54%', o: 0.75 },
+    { left: '76%', top: '50%', o: 0.60 },
+    { left: '86%', top: '58%', o: 0.70 },
+    { left: '94%', top: '52%', o: 0.55 },
+  ].map((s, i) => {
+    const group = i % 2 === 0 ? 'star-a' : 'star-b';
+    const speed = i % 5 === 0 ? 'star-slow' : i % 7 === 0 ? 'star-fast' : '';
+    return (
+      <div
+        key={`${s.left}-${s.top}-${i}`}
+        className={`absolute w-1 h-1 bg-white rounded-full star ${group} ${speed}`}
+        style={{ left: s.left, top: s.top, opacity: s.o }}
+      />
+    );
+  })}
+</div>
+
       
       {/* Mgła */}
       <div className="absolute inset-0 bg-gradient-to-t from-transparent via-slate-900/20 to-transparent" />

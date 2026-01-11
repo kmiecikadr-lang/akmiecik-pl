@@ -57,3 +57,50 @@ body {
     animation: none;
   }
 }
+/* ===== STARS: CROSSFADE (A <-> B) ===== */
+
+@keyframes starsA {
+  0%   { opacity: 0; }
+  10%  { opacity: 0.9; }
+  45%  { opacity: 0.9; }
+  55%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes starsB {
+  0%   { opacity: 0.9; }
+  10%  { opacity: 0; }
+  45%  { opacity: 0; }
+  55%  { opacity: 0.9; }
+  100% { opacity: 0.9; }
+}
+
+/* bazowa klasa gwiazdek */
+.star {
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: opacity;
+}
+
+/* grupa A i B: naprzemienne znikanie/pojawianie */
+.star-a {
+  animation-name: starsA;
+  animation-duration: 6s;
+}
+
+.star-b {
+  animation-name: starsB;
+  animation-duration: 6s;
+}
+
+/* różne tempa, żeby było bardziej naturalnie */
+.star-slow { animation-duration: 8s; }
+.star-fast { animation-duration: 4.5s; }
+
+/* szanuj "reduce motion" */
+@media (prefers-reduced-motion: reduce) {
+  .star {
+    animation: none !important;
+    opacity: 0.8;
+  }
+}
