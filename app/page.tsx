@@ -22,41 +22,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEKCJA 2: Placeholder */}
-      <section className="min-h-screen flex items-center justify-center relative z-10">
-        <div className="text-center">
-          <h2 className="text-5xl font-bold text-white mb-4">
-            Sekcja 2
-          </h2>
-          <p className="text-xl text-slate-300">
-            Tutaj będzie portfolio
-          </p>
-        </div>
-      </section>
-
-      {/* SEKCJA 3: Placeholder */}
-     <section className="min-h-screen flex items-center justify-center relative z-10">
-        <div className="text-center">
-          <h2 className="text-5xl font-bold text-white mb-4">
-            Sekcja 3
-          </h2>
-          <p className="text-xl text-slate-300">
-            Tutaj będzie blog
-          </p>
-        </div>
-      </section>
-
       {/* SEKCJA 4: Placeholder */}
-      <section className="min-h-screen flex items-center justify-center relative z-10">
-        <div className="text-center">
-          <h2 className="text-5xl font-bold text-white mb-4">
-            Sekcja 4
-          </h2>
-          <p className="text-xl text-slate-300">
-            Tutaj będzie kontakt
-          </p>
-        </div>
-      </section>
+     <section id="kontakt" className="py-24 text-center">
+  <h2 className="text-2xl font-medium mb-6">
+    Pozostańmy w kontakcie
+  </h2>
+
+  <p className="text-lg text-muted">
+    Adrian
+  </p>
+
+  <a
+    href="tel:+48788441244"
+    className="mt-2 inline-block text-xl font-semibold hover:underline"
+  >
+    +48&nbsp;788&nbsp;441&nbsp;244
+  </a>
+</section>
+
     </>
   )
 }
