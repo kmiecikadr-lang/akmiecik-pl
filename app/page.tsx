@@ -8,6 +8,29 @@ import { posts, books } from "@/lib/content";
 
 const marquee = ["Daimler Truck Retail Polska", "Smilerate", "iAtlas", "dbajOBHP"];
 
+const jobs: { d: string; r: string; f: string; t?: string; now?: boolean; bhp?: boolean }[] = [
+  { d: "08.2024 — obecnie", r: "Key Account Manager ds. Sprzedaży Części i Usług Serwisowych", f: "Daimler Truck Retail Polska · Ruda Śląska", t: "Pozyskiwanie i rozwój klientów flotowych, oferty, negocjacje, współpraca z serwisem.", now: true },
+  { d: "02.2022 — 07.2024", r: "Reprezentant Handlowy ds. Usług Serwisowych", f: "Volvo Trucks Polska · Świętochłowice", t: "Sprzedaż usług i kontraktów serwisowych, analiza potrzeb klientów." },
+  { d: "02.2023 — 02.2024", r: "Starszy Inspektor ds. BHP", f: "Ajaks Multiserwis · Dąbrowa Górnicza", t: "Pełen zakres zadań służby BHP, kontrole, szkolenia wstępne i okresowe.", bhp: true },
+  { d: "07.2021 — 07.2023", r: "Starszy Inspektor ds. BHP", f: "ARBOR BHP · Sławków", t: "Doradztwo, kontrole i szkolenia BHP.", bhp: true },
+  { d: "01.2021 — 01.2022", r: "Przedstawiciel Handlowy", f: "ZTE Katowice" },
+  { d: "04.2020 — 11.2020", r: "Przedstawiciel Handlowy ds. Usług Serwisowych", f: "Scania Polska · Gliwice", t: "Kontrakty serwisowe, kampanie warsztatowe, usługi telematyczne." },
+  { d: "06.2018 — 04.2020", r: "Doradca Serwisowy", f: "Scania Polska · Gliwice", t: "Zlecenia warsztatowe, sprzedaż części, rozliczenia, współpraca z ubezpieczycielami." },
+];
+
+const edu = [
+  { t: "Studia podyplomowe — Bezpieczeństwo i higiena pracy", s: "Uniwersytet Jana Długosza w Częstochowie · 2023" },
+  { t: "Magister — Zarządzanie i Inżynieria Produkcji, Europejski Menedżer BHP", s: "Wyższa Szkoła Zarządzania Ochroną Pracy w Katowicach · 2021" },
+  { t: "Inżynier — Zarządzanie i Inżynieria Produkcji, Zarządzanie Jakością", s: "Wyższa Szkoła Zarządzania Ochroną Pracy w Katowicach · 2020" },
+];
+
+const certs = [
+  { t: "Inspektor Ochrony Przeciwpożarowej", s: "2024" },
+  { t: "Auditor Zintegrowanego Systemu Zarządzania", s: "ISO 9001, ISO 14001, ISO 45001 · 2020" },
+  { t: "Auditor Wewnętrzny Systemu Zarządzania Jakością", s: "ISO 9001:2015 · 2020" },
+  { t: "Organizacja bezpiecznej pracy na wysokości", s: "Kurs · 2021" },
+];
+
 function Arrow() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" stroke="currentColor" strokeWidth="2">
@@ -52,7 +75,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={400}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-mist">
-              Jestem Key Account Managerem w Daimler Truck Retail Polska — wcześniej Scania i Volvo. Mam przygotowanie z BHP i za sobą wiele przeprowadzonych szkoleń. Po godzinach rozwijam własne projekty, czytam i opisuję to, czego się uczę.
+              Key Account Manager w Daimler Truck Retail Polska, wcześniej Volvo Trucks i Scania. Magister inżynier i specjalista BHP z uprawnieniami inspektora ochrony przeciwpożarowej. Po godzinach rozwijam własne projekty, czytam i opisuję to, czego się uczę.
             </p>
           </Reveal>
           <Reveal delay={550}>
@@ -84,8 +107,8 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 md:grid-cols-4">
           {[
             { n: 8, s: "+", t: "lat w branży ciężarowej" },
-            { n: 4, s: "", t: "firmy w CV — od Scanii po Daimler" },
-            { n: 3, s: "", t: "własne produkty w grze" },
+            { n: 2, s: "+", t: "lata jako starszy inspektor BHP" },
+            { n: 3, s: "", t: "własne projekty w rozwoju" },
             { n: 52, s: "", t: "książki do przeczytania w rok" },
           ].map((x, i) => (
             <Reveal key={i} delay={i * 100} className="bg-ink p-8 md:p-10">
@@ -172,33 +195,73 @@ export default function Home() {
 
       {/* DOŚWIADCZENIE */}
       <section id="doswiadczenie" className="relative overflow-hidden border-y border-white/10 px-6 py-28">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-16 md:grid-cols-2">
-          <Reveal>
-            <p className="text-sm uppercase tracking-[.3em] text-lime">Na etacie</p>
-            <h2 className="mt-4 font-display text-5xl font-extrabold tracking-tight md:text-6xl">Key Account Manager</h2>
-            <p className="mt-4 text-xl text-white/80">Daimler Truck Retail Polska · Ruda Śląska</p>
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-16 md:grid-cols-[1fr_1.4fr]">
+          <Reveal className="md:sticky md:top-32 md:self-start">
+            <p className="text-sm uppercase tracking-[.3em] text-lime">Doświadczenie</p>
+            <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight md:text-6xl">Od doradcy serwisowego do Key Account Managera</h2>
             <p className="mt-6 max-w-md leading-relaxed text-mist">
-              Sprzedaż części i usług serwisowych dla flot ciężarowych. Relacje z klientami, programy lojalnościowe, oferty serwisowe szyte pod potrzeby firmy.
+              Zaczynałem w 2018 roku jako doradca serwisowy w Scanii. Potem sprzedaż usług serwisowych w Scanii i Volvo Trucks, a dziś kluczowi klienci w Daimler Truck. Równolegle ponad 2 lata pracowałem jako starszy inspektor BHP — audyty, kontrole i szkolenia.
             </p>
           </Reveal>
-          <div className="space-y-4">
-            {[
-              { f: "Daimler Truck Retail Polska", r: "KAM · części i serwis", now: true },
-              { f: "BHP", r: "szkolenia i doradztwo dla firm" },
-              { f: "Scania", r: "branża ciężarowa" },
-              { f: "Volvo", r: "branża ciężarowa" },
-              { f: "ZTE Katowice", r: "" },
-            ].map((x, i) => (
-              <Reveal key={x.f} delay={i * 100}>
-                <div className="flex items-center justify-between rounded-2xl border border-white/10 px-6 py-5 transition hover:border-lime/40 hover:bg-white/[.03]">
-                  <div>
-                    <p className="font-display text-xl font-bold">{x.f}</p>
-                    {x.r && <p className="text-sm text-mist">{x.r}</p>}
+          <ol className="relative space-y-4 border-l border-white/10 pl-6">
+            {jobs.map((x, i) => (
+              <Reveal key={i} delay={i * 60}>
+                <li className="relative rounded-2xl border border-white/10 bg-white/[.02] px-6 py-5 transition hover:border-lime/40 hover:bg-white/[.04]">
+                  <span className={`absolute top-7 -left-[31px] h-2.5 w-2.5 rounded-full ${x.now ? "pulse-dot bg-lime" : x.bhp ? "bg-amber" : "bg-white/30"}`} />
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <p className="text-sm text-mist">{x.d}</p>
+                    {x.now && <Tag live>Teraz</Tag>}
+                    {x.bhp && <span className="text-xs uppercase tracking-widest text-amber">BHP</span>}
                   </div>
-                  {x.now && <Tag live>Teraz</Tag>}
-                </div>
+                  <p className="mt-2 font-display text-xl font-bold">{x.r}</p>
+                  <p className="text-sm text-white/70">{x.f}</p>
+                  {x.t && <p className="mt-2 text-sm text-mist">{x.t}</p>}
+                </li>
               </Reveal>
             ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* WYKSZTAŁCENIE */}
+      <section className="px-6 py-28">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <p className="text-sm uppercase tracking-[.3em] text-lime">Wykształcenie i uprawnienia</p>
+            <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight md:text-6xl">
+              mgr inż. <span className="outline-text">+ BHP + ISO</span>
+            </h2>
+          </Reveal>
+          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
+            <Reveal>
+              <Spot className="h-full p-8">
+                <Tag>Studia</Tag>
+                <ul className="mt-6 space-y-5">
+                  {edu.map((e) => (
+                    <li key={e.t}>
+                      <p className="font-display text-lg font-bold">{e.t}</p>
+                      <p className="text-sm text-mist">{e.s}</p>
+                    </li>
+                  ))}
+                </ul>
+              </Spot>
+            </Reveal>
+            <Reveal delay={120}>
+              <Spot className="h-full p-8">
+                <Tag>Uprawnienia i certyfikaty</Tag>
+                <ul className="mt-6 space-y-5">
+                  {certs.map((e) => (
+                    <li key={e.t} className="flex gap-4">
+                      <span className="mt-1 text-lime">✦</span>
+                      <div>
+                        <p className="font-display text-lg font-bold">{e.t}</p>
+                        <p className="text-sm text-mist">{e.s}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </Spot>
+            </Reveal>
           </div>
         </div>
       </section>
