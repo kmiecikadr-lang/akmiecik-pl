@@ -1,9 +1,10 @@
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import Spot from "@/components/Spot";
+import Nav, { Footer, PHONE, TEL } from "@/components/Nav";
+import Link from "next/link";
+import { posts, books } from "@/lib/content";
 
-const PHONE = "+48 788 441 244";
-const TEL = "tel:+48788441244";
 
 const marquee = ["Daimler Truck", "Scania", "Volvo", "ZTE", "Sprzedaż B2B", "Key Account Management", "SaaS", "BHP", "AI", "Produkty cyfrowe"];
 
@@ -27,22 +28,7 @@ function Tag({ children, live = false }: { children: React.ReactNode; live?: boo
 export default function Home() {
   return (
     <main className="grain relative overflow-x-clip">
-      {/* NAV */}
-      <nav className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
-        <div className="flex w-full max-w-5xl items-center justify-between rounded-full border border-white/10 bg-ink/60 px-5 py-3 backdrop-blur-xl">
-          <a href="#top" className="font-display text-lg font-extrabold tracking-tight">
-            AK<span className="text-lime">.</span>
-          </a>
-          <div className="hidden gap-8 text-sm text-mist md:flex">
-            <a href="#projekty" className="transition hover:text-white">Projekty</a>
-            <a href="#doswiadczenie" className="transition hover:text-white">Doświadczenie</a>
-            <a href="#kontakt" className="transition hover:text-white">Kontakt</a>
-          </div>
-          <a href={TEL} className="rounded-full bg-lime px-4 py-2 text-sm font-semibold text-ink transition hover:scale-105">
-            Zadzwoń
-          </a>
-        </div>
-      </nav>
+      <Nav />
 
       {/* HERO */}
       <section id="top" className="relative flex min-h-[100svh] items-center overflow-hidden px-6 pt-28 pb-16">
@@ -51,7 +37,7 @@ export default function Home() {
         <div className="relative mx-auto w-full max-w-6xl">
           <Reveal>
             <p className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-mist backdrop-blur">
-              <span className="pulse-dot h-2 w-2 rounded-full bg-lime" /> Key Account Manager · Daimler Truck Retail Polska
+              <span className="pulse-dot h-2 w-2 rounded-full bg-lime" /> Sprzedaż B2B · BHP · Własne projekty
             </p>
           </Reveal>
           <Reveal delay={100}>
@@ -61,12 +47,12 @@ export default function Home() {
           </Reveal>
           <Reveal delay={250}>
             <p className="mt-10 font-display text-3xl font-semibold tracking-tight md:text-5xl">
-              Sprzedaż B2B w branży ciężarowej.<br /><span className="text-lime">Własne projekty cyfrowe.</span>
+              Sprzedaję, szkolę, buduję.<br /><span className="text-lime">I ciągle się rozwijam.</span>
             </p>
           </Reveal>
           <Reveal delay={400}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-mist">
-              Ponad 8 lat doświadczenia w sprzedaży części i usług serwisowych dla flot i firm transportowych — w Daimler Truck, Scanii i Volvo. Równolegle rozwijam własne projekty: Smilerate, iAtlas i dbajOBHP.
+              Jestem Key Account Managerem w Daimler Truck Retail Polska — wcześniej Scania i Volvo. Mam przygotowanie z BHP i za sobą wiele przeprowadzonych szkoleń. Po godzinach rozwijam własne projekty, czytam i opisuję to, czego się uczę.
             </p>
           </Reveal>
           <Reveal delay={550}>
@@ -100,7 +86,7 @@ export default function Home() {
             { n: 8, s: "+", t: "lat w branży ciężarowej" },
             { n: 4, s: "", t: "firmy w CV — od Scanii po Daimler" },
             { n: 3, s: "", t: "własne produkty w grze" },
-            { n: 100, s: "%", t: "zaangażowania w każdy temat" },
+            { n: 52, s: "", t: "książki do przeczytania w rok" },
           ].map((x, i) => (
             <Reveal key={i} delay={i * 100} className="bg-ink p-8 md:p-10">
               <div className="font-display text-5xl font-extrabold tracking-tight text-lime md:text-7xl">
@@ -195,6 +181,7 @@ export default function Home() {
           <div className="space-y-4">
             {[
               { f: "Daimler Truck Retail Polska", r: "KAM · części i serwis", now: true },
+              { f: "BHP", r: "szkolenia i doradztwo dla firm" },
               { f: "Scania", r: "branża ciężarowa" },
               { f: "Volvo", r: "branża ciężarowa" },
               { f: "ZTE Katowice", r: "" },
@@ -209,6 +196,44 @@ export default function Home() {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* POZA PRACĄ */}
+      <section className="px-6 pt-28">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <p className="text-sm uppercase tracking-[.3em] text-lime">Poza pracą</p>
+            <h2 className="mt-4 font-display text-5xl font-extrabold tracking-tight md:text-7xl">
+              Normalny człowiek, <span className="outline-text">który chce więcej</span>
+            </h2>
+          </Reveal>
+          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
+            <Reveal>
+              <Link href="/projekt-52" className="spot group block h-full rounded-3xl border border-white/10 bg-white/[.03] p-8 transition hover:-translate-y-1 hover:border-lime/40">
+                <Tag live>Projekt 52</Tag>
+                <p className="mt-10 font-display text-7xl font-extrabold text-lime">
+                  {books.filter((b) => b.status === "przeczytana").length}<span className="text-white/30">/52</span>
+                </p>
+                <h3 className="mt-4 font-display text-3xl font-bold">52 książki w rok</h3>
+                <p className="mt-3 text-mist">
+                  Teraz czytam: {books.find((b) => b.status === "czytam")?.title ?? "—"}. Po każdej książce krótka notatka.
+                </p>
+              </Link>
+            </Reveal>
+            <Reveal delay={120}>
+              <Link href="/blog" className="spot group block h-full rounded-3xl border border-white/10 bg-white/[.03] p-8 transition hover:-translate-y-1 hover:border-lime/40">
+                <div className="flex items-start justify-between">
+                  <Tag>Blog</Tag>
+                  <span className="text-mist group-hover:text-lime"><Arrow /></span>
+                </div>
+                <h3 className="mt-10 font-display text-3xl font-bold">Notatki z drogi</h3>
+                <p className="mt-3 text-mist">Sprzedaż, BHP, budowanie własnych projektów i wnioski z książek.</p>
+                <p className="mt-8 border-t border-white/10 pt-5 text-sm text-mist">Najnowszy wpis</p>
+                <p className="mt-1 font-semibold transition group-hover:text-lime">{posts[0]?.title}</p>
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -236,11 +261,8 @@ export default function Home() {
             </a>
           </Reveal>
         </div>
-        <footer className="mx-auto mt-10 flex max-w-6xl flex-wrap justify-between gap-4 text-sm text-mist">
-          <span>© {new Date().getFullYear()} Adrian Kmiecik</span>
-          <span>Ruda Śląska · Śląsk</span>
-        </footer>
       </section>
+      <Footer />
     </main>
   );
 }
