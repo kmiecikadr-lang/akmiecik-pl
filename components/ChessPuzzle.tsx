@@ -1,8 +1,11 @@
 "use client";
 import { useMemo, useRef, useState } from "react";
 import { Chess, type Square } from "chess.js";
+import { defaultPieces } from "react-chessboard";
 
-const GLYPH: Record<string, string> = { k: "♚", q: "♛", r: "♜", b: "♝", n: "♞", p: "♟" };
+// Kolory planszy i podświetleń jak na Lichess
+const LIGHT = "#f0d9b5";
+const DARK = "#b58863";
 const FILES = "abcdefgh";
 
 type Status = "play" | "wrong" | "solved";
@@ -108,7 +111,7 @@ export default function ChessPuzzle({ fen, solution }: { fen: string; solution: 
       <p className="mb-3 text-sm text-mist">
         Ruch mają <span className="font-semibold text-white">{side === "w" ? "białe" : "czarne"}</span>
       </p>
-      <div className="grid grid-cols-8 overflow-hidden rounded-xl border border-white/10 shadow-2xl select-none">
+      <div className="grid grid-cols-8 overflow-hidden rounded-md shadow-2xl select-none">
         {ranks.map((r) =>
           files.map((f) => {
             const sq = (FILES[f] + (8 - r)) as Square;
@@ -122,28 +125,21 @@ export default function ChessPuzzle({ fen, solution }: { fen: string; solution: 
                 key={sq}
                 onClick={() => click(sq)}
                 aria-label={sq}
-                className={`relative flex aspect-square items-center justify-center ${dark ? "bg-[#5f7f52]" : "bg-[#dfe7d2]"}`}
+                className="relative flex aspect-square items-center justify-center"
+                style={{ background: dark ? DARK : LIGHT }}
               >
-                {(isLast || isSel) && <span className={`absolute inset-0 ${isSel ? "bg-lime/60" : "bg-amber/40"}`} />}
-                {hint === sq && <span className="absolute inset-0 animate-pulse bg-lime/70" />}
+                {(isLast || isSel) && <span className="absolute inset-0" style={{ background: isSel ? "rgba(20,85,30,.5)" : "rgba(155,199,0,.41)" }} />}
+                {hint === sq && <span className="absolute inset-0 animate-pulse" style={{ background: "rgba(20,85,30,.6)" }} />}
                 {wrongSq === sq && <span className="absolute inset-0 bg-red-500/60" />}
-                {f === files[0] && <span className={`absolute top-0.5 left-1 text-[9px] font-semibold ${dark ? "text-[#dfe7d2]" : "text-[#5f7f52]"}`}>{8 - r}</span>}
-                {r === ranks[7] && <span className={`absolute right-1 bottom-0 text-[9px] font-semibold ${dark ? "text-[#dfe7d2]" : "text-[#5f7f52]"}`}>{FILES[f]}</span>}
+                {f === files[0] && <span className={`absolute top-0.5 left-1 text-[9px] font-semibold ${dark ? "text-[#f0d9b5]" : "text-[#b58863]"}`}>{8 - r}</span>}
+                {r === ranks[7] && <span className={`absolute right-1 bottom-0 text-[9px] font-semibold ${dark ? "text-[#f0d9b5]" : "text-[#b58863]"}`}>{FILES[f]}</span>}
                 {p && (
-                  <span
-                    className="relative text-[min(9vw,44px)] leading-none"
-                    style={{
-                      color: p.color === "w" ? "#ffffff" : "#0b0f0c",
-                      WebkitTextStroke: p.color === "w" ? "1.2px #0b0f0c" : "0.6px #0b0f0c",
-                      fontFamily: '"Segoe UI Symbol","Noto Sans Symbols 2","DejaVu Sans",serif',
-                    }}
-                  >
-                    {GLYPH[p.type]}
-                    {"︎"}
+                  <span className="relative h-full w-full">
+                    {defaultPieces[(p.color === "w" ? "w" : "b") + p.type.toUpperCase()]({ svgStyle: { width: "100%", height: "100%" } })}
                   </span>
                 )}
-                {isTarget && !p && <span className="absolute h-1/4 w-1/4 rounded-full bg-black/25" />}
-                {isTarget && p && <span className="absolute inset-1 rounded-full border-4 border-black/25" />}
+                {isTarget && !p && <span className="absolute h-1/4 w-1/4 rounded-full" style={{ background: "rgba(20,85,30,.5)" }} />}
+                {isTarget && p && <span className="pointer-events-none absolute inset-0 z-10 rounded-full border-[5px]" style={{ borderColor: "rgba(20,85,30,.5)" }} />}
               </button>
             );
           }),
