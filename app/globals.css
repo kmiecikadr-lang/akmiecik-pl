@@ -1,132 +1,86 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-display: "Bricolage Grotesque Variable", system-ui, sans-serif;
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --color-ink: #05080a;
+  --color-lime: #c6ff3d;
+  --color-amber: #ffb547;
+  --color-mist: #9aa7a3;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html { scroll-behavior: smooth; }
+html, body { overflow-x: clip; }
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ink);
+  color: #eef3f0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
-/* ===== STAR TWINKLE ===== */
+::selection { background: var(--color-lime); color: var(--color-ink); }
 
-@keyframes twinkle {
-  0% {
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.4;
-  }
+/* ziarno */
+.grain::after {
+  content: ""; position: fixed; inset: -50%; pointer-events: none; z-index: 60; opacity: .07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain 1.2s steps(6) infinite;
 }
-
-.star {
-  animation: twinkle 5s ease-in-out infinite;
+@keyframes grain {
+  0%{transform:translate(0,0)} 20%{transform:translate(-3%,2%)} 40%{transform:translate(2%,-3%)}
+  60%{transform:translate(-2%,-1%)} 80%{transform:translate(3%,3%)} 100%{transform:translate(0,0)}
 }
 
-/* różne tempo, żeby nie migały razem */
-.star-slow {
-  animation-duration: 7s;
+/* zorza */
+.aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.aurora span { position: absolute; border-radius: 9999px; filter: blur(90px); opacity: .55; mix-blend-mode: screen; }
+.aurora .a1 { width: 55vmax; height: 55vmax; background: #1f6b4a; top: -20vmax; left: -15vmax; animation: drift1 18s ease-in-out infinite alternate; }
+.aurora .a2 { width: 45vmax; height: 45vmax; background: #9bd41c; top: 10vmax; right: -20vmax; opacity: .28; animation: drift2 22s ease-in-out infinite alternate; }
+.aurora .a3 { width: 40vmax; height: 40vmax; background: #ff9f2e; bottom: -25vmax; left: 20vmax; opacity: .22; animation: drift3 26s ease-in-out infinite alternate; }
+@keyframes drift1 { to { transform: translate(18vmax, 10vmax) scale(1.15); } }
+@keyframes drift2 { to { transform: translate(-16vmax, 14vmax) scale(.9); } }
+@keyframes drift3 { to { transform: translate(-12vmax, -12vmax) scale(1.2); } }
+
+.grid-lines {
+  background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 40%, black 30%, transparent 75%);
 }
 
-.star-fast {
-  animation-duration: 3.5s;
+/* tekst z gradientem */
+.text-shine {
+  background: linear-gradient(100deg, #eef3f0 0%, #c6ff3d 40%, #ffb547 60%, #eef3f0 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shine 8s linear infinite;
 }
+@keyframes shine { to { background-position: -250% 0; } }
 
-/* jeśli ktoś nie lubi animacji */
+.outline-text { color: transparent; -webkit-text-stroke: 1.5px rgba(238,243,240,.35); }
+
+/* pojawianie */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+
+/* pasek przewijany */
+.marquee { display: flex; width: max-content; animation: marquee 32s linear infinite; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* karta ze światłem */
+.spot { position: relative; isolation: isolate; }
+.spot::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: -1; opacity: 0; transition: opacity .4s;
+  background: radial-gradient(520px circle at var(--x, 50%) var(--y, 50%), rgba(198,255,61,.16), transparent 45%);
+}
+.spot:hover::before { opacity: 1; }
+
+.word-in { animation: wordIn .6s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes wordIn { from { opacity: 0; transform: translateY(60%); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }
+
+.pulse-dot { box-shadow: 0 0 0 0 rgba(198,255,61,.7); animation: pulse 2s infinite; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 12px rgba(198,255,61,0); } 100% { box-shadow: 0 0 0 0 rgba(198,255,61,0); } }
+
 @media (prefers-reduced-motion: reduce) {
-  .star {
-    animation: none;
-  }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
 }
-/* ===== STARS: CROSSFADE (A <-> B) ===== */
-
-@keyframes starsA {
-  0%   { opacity: 0; }
-  10%  { opacity: 0.9; }
-  45%  { opacity: 0.9; }
-  55%  { opacity: 0; }
-  100% { opacity: 0; }
-}
-
-@keyframes starsB {
-  0%   { opacity: 0.9; }
-  10%  { opacity: 0; }
-  45%  { opacity: 0; }
-  55%  { opacity: 0.9; }
-  100% { opacity: 0.9; }
-}
-
-/* bazowa klasa gwiazdek */
-.star {
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  will-change: opacity;
-}
-
-/* grupa A i B: naprzemienne znikanie/pojawianie */
-.star-a {
-  animation-name: starsA;
-  animation-duration: 6s;
-}
-
-.star-b {
-  animation-name: starsB;
-  animation-duration: 6s;
-}
-
-/* różne tempa, żeby było bardziej naturalnie */
-.star-slow { animation-duration: 8s; }
-.star-fast { animation-duration: 4.5s; }
-
-/* szanuj "reduce motion" */
-@media (prefers-reduced-motion: reduce) {
-  .star {
-    animation: none !important;
-    opacity: 0.8;
-  }
-}
-@keyframes sunGlow {
-  0%   { transform: scale(1);   opacity: 0.95; }
-  50%  { transform: scale(1.04); opacity: 1; }
-  100% { transform: scale(1);   opacity: 0.95; }
-}
-
-.sun-glow {
-  animation: sunGlow 6s ease-in-out infinite;
-}
-
-/* jeśli ktoś nie lubi animacji */
-@media (prefers-reduced-motion: reduce) {
-  .sun-glow { animation: none; }
-}
-/* ===== THEME TEXT COLORS ===== */
-body.theme-night {
-  color: #f1f5f9;
-}
-
-body.theme-day {
-  color: #0f172a;
-}
-
-/* opcjonalnie: linki */
-body.theme-night a { color: #e2e8f0; }
-body.theme-day a { color: #0f172a; }
