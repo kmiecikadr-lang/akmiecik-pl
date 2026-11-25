@@ -149,20 +149,21 @@ export default async function Home() {
 
           <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-6">
             <Reveal className="md:col-span-4">
-              <Spot href="https://smilerate.pl" className="h-full p-8 md:p-10">
+              <Spot href="https://dbajobhp.pl" className="h-full p-8 md:p-10">
                 <div className="flex items-start justify-between">
                   <Tag live>Działa</Tag>
                   <span className="text-mist group-hover:text-lime"><Arrow /></span>
                 </div>
-                <div className="my-10 flex gap-2 text-[2.6rem] md:gap-5 md:text-8xl">
-                  {["😡", "🙁", "😐", "🙂", "😍"].map((e, i) => (
-                    <span key={i} className="transition duration-500 group-hover:-translate-y-3" style={{ transitionDelay: `${i * 60}ms` }}>{e}</span>
+                <ul className="my-10 space-y-3">
+                  {["Szkolenia BHP wstępne i okresowe", "Dokumentacja i ocena ryzyka", "Kontrole i doradztwo na miejscu"].map((t, i) => (
+                    <li key={t} className="flex items-center gap-4 font-display text-xl font-semibold transition duration-500 group-hover:translate-x-2 md:text-2xl" style={{ transitionDelay: `${i * 70}ms` }}>
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-lime text-base text-ink">✓</span>
+                      {t}
+                    </li>
                   ))}
-                </div>
-                <h3 className="font-display text-4xl font-bold">Smilerate</h3>
-                <p className="mt-3 max-w-lg text-mist">
-                  Kiosk z minkami, który mierzy zadowolenie klientów na bieżąco. Tablet przy ladzie, panel dla managera i raport w każdy poniedziałek na maila.
-                </p>
+                </ul>
+                <h3 className="font-display text-4xl font-bold">dbaj<span className="text-amber">OBHP</span></h3>
+                <p className="mt-3 max-w-lg text-mist">Doradztwo i szkolenia BHP dla firm. Robię to osobiście — konkretnie, bez papierologii dla samej papierologii.</p>
               </Spot>
             </Reveal>
 
@@ -185,13 +186,20 @@ export default async function Home() {
             </Reveal>
 
             <Reveal delay={80} className="md:col-span-3">
-              <Spot href="https://dbajobhp.com.pl" className="h-full p-8">
+              <Spot href="https://smilerate.pl" className="h-full p-8 md:p-10">
                 <div className="flex items-start justify-between">
-                  <Tag>BHP dla firm</Tag>
+                  <Tag live>Działa</Tag>
                   <span className="text-mist group-hover:text-lime"><Arrow /></span>
                 </div>
-                <h3 className="mt-16 font-display text-3xl font-bold">dbaj<span className="text-amber">OBHP</span></h3>
-                <p className="mt-3 text-mist">Doradztwo i szkolenia BHP. Robię to osobiście — konkretnie, bez papierologii dla samej papierologii.</p>
+                <div className="my-10 flex gap-2 text-[2.6rem] md:gap-4 md:text-6xl">
+                  {["😡", "🙁", "😐", "🙂", "😍"].map((e, i) => (
+                    <span key={i} className="transition duration-500 group-hover:-translate-y-3" style={{ transitionDelay: `${i * 60}ms` }}>{e}</span>
+                  ))}
+                </div>
+                <h3 className="font-display text-3xl font-bold">Smilerate</h3>
+                <p className="mt-3 max-w-lg text-mist">
+                  Kiosk z minkami, który mierzy zadowolenie klientów na bieżąco. Tablet przy ladzie, panel dla managera i raport w każdy poniedziałek na maila.
+                </p>
               </Spot>
             </Reveal>
 
