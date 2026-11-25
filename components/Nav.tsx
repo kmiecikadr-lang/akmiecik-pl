@@ -2,6 +2,7 @@ import Link from "next/link";
 
 export const PHONE = "+48 788 441 244";
 export const TEL = "tel:+48788441244";
+export const EMAIL = "adrian@akmiecik.pl";
 
 export default function Nav() {
   return (
@@ -28,7 +29,7 @@ export function Footer() {
   return (
     <footer className="mx-auto mt-10 flex max-w-6xl flex-wrap justify-between gap-4 px-6 pb-10 text-sm text-mist">
       <span>© {new Date().getFullYear()} Adrian Kmiecik</span>
-      <span>Czeladź · Śląsk</span>
+      <span><a href={`mailto:${EMAIL}`} className="transition hover:text-lime">{EMAIL}</a> · Czeladź · Śląsk</span>
     </footer>
   );
 }

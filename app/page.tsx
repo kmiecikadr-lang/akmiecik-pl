@@ -1,7 +1,7 @@
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import Spot from "@/components/Spot";
-import Nav, { Footer, PHONE, TEL } from "@/components/Nav";
+import Nav, { Footer, PHONE, TEL, EMAIL } from "@/components/Nav";
 import Link from "next/link";
 import { posts, books } from "@/lib/content";
 import ChessPuzzle from "@/components/ChessPuzzle";
@@ -336,9 +336,12 @@ export default async function Home() {
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-[.3em]">Kontakt</p>
             <h2 className="mt-4 font-display text-[3.2rem] font-extrabold tracking-tight md:text-9xl">Pogadajmy.</h2>
-            <p className="mt-6 max-w-md text-lg text-ink/70">Masz flotę, firmę albo pomysł? Jeden telefon wystarczy, żeby sprawdzić, czy możemy coś razem zrobić.</p>
+            <p className="mt-6 max-w-md text-lg text-ink/70">Masz flotę, firmę albo pomysł? Zadzwoń albo napisz — sprawdzimy, czy możemy coś razem zrobić.</p>
             <a href={TEL} className="group mt-10 inline-flex items-center gap-4 rounded-full bg-ink px-6 py-4 font-display text-xl font-bold whitespace-nowrap text-lime transition hover:scale-105 md:px-8 md:py-5 md:text-4xl">
               {PHONE} <Arrow />
+            </a>
+            <a href={`mailto:${EMAIL}`} className="mt-5 block font-display text-xl font-bold underline decoration-ink/30 underline-offset-4 transition hover:decoration-ink md:text-2xl">
+              {EMAIL}
             </a>
           </Reveal>
         </div>
