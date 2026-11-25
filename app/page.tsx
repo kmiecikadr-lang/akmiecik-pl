@@ -4,6 +4,10 @@ import Spot from "@/components/Spot";
 import Nav, { Footer, PHONE, TEL } from "@/components/Nav";
 import Link from "next/link";
 import { posts, books } from "@/lib/content";
+import ChessPuzzle from "@/components/ChessPuzzle";
+import { getDailyPuzzle } from "@/lib/puzzle";
+
+export const revalidate = 3600;
 
 
 const marquee = ["Daimler Truck Retail Polska", "Smilerate", "iAtlas", "dbajOBHP"];
@@ -59,7 +63,8 @@ function Tag({ children, live = false }: { children: React.ReactNode; live?: boo
   );
 }
 
-export default function Home() {
+export default async function Home() {
+  const puzzle = await getDailyPuzzle();
   return (
     <main className="grain relative overflow-x-clip">
       <Nav />
@@ -289,6 +294,18 @@ export default function Home() {
                 <p className="mt-8 border-t border-white/10 pt-5 text-sm text-mist">Najnowszy wpis</p>
                 <p className="mt-1 font-semibold transition group-hover:text-lime">{posts[0]?.title}</p>
               </Link>
+            </Reveal>
+            <Reveal delay={80} className="md:col-span-2">
+              <div className="grid grid-cols-1 items-center gap-10 rounded-3xl border border-white/10 bg-white/[.03] p-6 md:grid-cols-[1fr_auto] md:p-10">
+                <div>
+                  <Tag live>Szachy · zadanie dnia</Tag>
+                  <h3 className="mt-8 font-display text-4xl font-bold md:text-5xl">{puzzle.goal}</h3>
+                  <p className="mt-4 max-w-sm text-mist">Codziennie nowe zadanie. Rozwiąż je tutaj — kliknij bierkę, a potem pole, na które ma się ruszyć.</p>
+                  {puzzle.rating && <p className="mt-6 text-sm text-mist">Ranking zadania: <span className="font-semibold text-white">{puzzle.rating}</span></p>}
+                  {puzzle.url && <a href={puzzle.url} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block text-sm text-lime hover:underline">Zadanie z Lichess →</a>}
+                </div>
+                <ChessPuzzle key={puzzle.fen} fen={puzzle.fen} solution={puzzle.solution} />
+              </div>
             </Reveal>
           </div>
         </div>
