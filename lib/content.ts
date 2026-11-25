@@ -1,7 +1,20 @@
 // Wpisy na blogu — najnowszy na górze. Akapity jako osobne elementy tablicy.
-export type Post = { slug: string; title: string; date: string; excerpt: string; body: string[] };
+export type Post = { slug: string; title: string; date: string; excerpt: string; body: string[]; category?: "ai" };
 
 export const posts: Post[] = [
+  {
+    slug: "jak-zbudowalem-te-strone-z-ai",
+    category: "ai",
+    title: "Jak zbudowałem tę stronę z AI",
+    date: "2026-11-25",
+    excerpt: "Jedno popołudnie, telefon w ręce i AI jako programista. Co zadziałało, a co musiałem poprawić.",
+    body: [
+      "Nie jestem programistą. Tę stronę zbudowałem, rozmawiając z AI — głównie z telefonu, między jednym a drugim zadaniem.",
+      "Zasada była prosta: ja mówię, co strona ma robić i jak ma brzmieć, AI pisze kod, wrzuca go na GitHub i pokazuje mi zrzuty ekranu. Ja oceniam i poprawiam.",
+      "Najwięcej pracy nie było w kodzie, tylko w treści. Pierwsze hasła brzmiały jak z reklamy, więc kazałem je przepisać tak, żeby wyglądały jak moje CV i wizytówka — konkretnie i po ludzku.",
+      "Wniosek: AI nie zastąpi wiedzy, kim jesteś i co chcesz powiedzieć. Ale zamienia dni pracy w godziny. W tej serii będę pokazywał takie przykłady — w sprzedaży, BHP i przy własnych projektach.",
+    ],
+  },
   {
     slug: "projekt-52-start",
     title: "Projekt 52: rok, 52 książki",

@@ -157,10 +157,13 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={160} className="md:col-span-3">
-              <Spot className="h-full p-8">
-                <Tag>Laboratorium</Tag>
+              <Spot href="/blog/ai-w-praktyce" className="h-full p-8">
+                <div className="flex items-start justify-between">
+                  <Tag>Blog</Tag>
+                  <span className="text-mist group-hover:text-lime"><Arrow /></span>
+                </div>
                 <h3 className="mt-16 font-display text-3xl font-bold">AI w praktyce</h3>
-                <p className="mt-3 text-mist">MediFind, monitoring publikacji naukowych, automatyzacje sprzedaży. Prototypy, na których sprawdzam nowe pomysły, zanim staną się produktem.</p>
+                <p className="mt-3 text-mist">Jak używam AI w sprzedaży, BHP i przy budowaniu własnych projektów. Konkretne przykłady, bez teorii.</p>
               </Spot>
             </Reveal>
           </div>

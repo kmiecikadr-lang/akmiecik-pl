@@ -12,6 +12,6 @@ export default function Spot({ children, className = "", href }: { children: Rea
   };
   const cls = `spot group block rounded-3xl border border-white/10 bg-white/[.03] backdrop-blur-sm transition duration-500 hover:-translate-y-1 hover:border-lime/40 ${className}`;
   if (href)
-    return <a ref={ref as React.RefObject<HTMLAnchorElement>} href={href} target="_blank" rel="noopener noreferrer" onMouseMove={move} className={cls}>{children}</a>;
+    return <a ref={ref as React.RefObject<HTMLAnchorElement>} href={href} {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} onMouseMove={move} className={cls}>{children}</a>;
   return <div ref={ref as React.RefObject<HTMLDivElement>} onMouseMove={move} className={cls}>{children}</div>;
 }
