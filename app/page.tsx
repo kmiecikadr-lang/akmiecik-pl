@@ -1,5 +1,4 @@
 import Reveal from "@/components/Reveal";
-import RotatingWord from "@/components/RotatingWord";
 import CountUp from "@/components/CountUp";
 import Spot from "@/components/Spot";
 
@@ -52,7 +51,7 @@ export default function Home() {
         <div className="relative mx-auto w-full max-w-6xl">
           <Reveal>
             <p className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-mist backdrop-blur">
-              <span className="pulse-dot h-2 w-2 rounded-full bg-lime" /> Śląsk · sprzedaż B2B · produkty cyfrowe
+              <span className="pulse-dot h-2 w-2 rounded-full bg-lime" /> Key Account Manager · Daimler Truck Retail Polska
             </p>
           </Reveal>
           <Reveal delay={100}>
@@ -62,12 +61,12 @@ export default function Home() {
           </Reveal>
           <Reveal delay={250}>
             <p className="mt-10 font-display text-3xl font-semibold tracking-tight md:text-5xl">
-              Handlowiec, który <RotatingWord words={["buduje produkty.", "dowozi wynik.", "zna warsztat.", "myśli jak klient."]} />
+              Sprzedaż B2B w branży ciężarowej.<br /><span className="text-lime">Własne projekty cyfrowe.</span>
             </p>
           </Reveal>
           <Reveal delay={400}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-mist">
-              Na co dzień sprzedaję części i usługi serwisowe dla flot ciężarowych. Po godzinach buduję własne produkty, które rozwiązują konkretne problemy firm.
+              Ponad 8 lat doświadczenia w sprzedaży części i usług serwisowych dla flot i firm transportowych — w Daimler Truck, Scanii i Volvo. Równolegle rozwijam własne projekty: Smilerate, iAtlas i dbajOBHP.
             </p>
           </Reveal>
           <Reveal delay={550}>
