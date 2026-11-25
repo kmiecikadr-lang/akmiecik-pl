@@ -7,7 +7,7 @@ export default function Nav() {
   return (
     <nav className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
       <div className="flex w-full max-w-5xl items-center justify-between rounded-full border border-white/10 bg-ink/60 px-5 py-3 backdrop-blur-xl">
-        <Link href="/" className="font-display text-lg font-extrabold tracking-tight">
+        <Link href="/#top" aria-label="Start" className="font-display text-lg font-extrabold tracking-tight">
           AK<span className="text-lime">.</span>
         </Link>
         <div className="flex gap-5 text-sm text-mist md:gap-8">
