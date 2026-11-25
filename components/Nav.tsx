@@ -28,7 +28,7 @@ export function Footer() {
   return (
     <footer className="mx-auto mt-10 flex max-w-6xl flex-wrap justify-between gap-4 px-6 pb-10 text-sm text-mist">
       <span>© {new Date().getFullYear()} Adrian Kmiecik</span>
-      <span>Ruda Śląska · Śląsk</span>
+      <span>Czeladź · Śląsk</span>
     </footer>
   );
 }
