@@ -6,7 +6,7 @@ import Link from "next/link";
 import { posts, books } from "@/lib/content";
 
 
-const marquee = ["Daimler Truck", "Scania", "Volvo", "ZTE", "Sprzedaż B2B", "Key Account Management", "SaaS", "BHP", "AI", "Produkty cyfrowe"];
+const marquee = ["Daimler Truck Retail Polska", "Smilerate", "iAtlas", "dbajOBHP"];
 
 function Arrow() {
   return (
@@ -71,7 +71,7 @@ export default function Home() {
       {/* MARQUEE */}
       <div className="relative -rotate-1 overflow-hidden border-y border-white/10 bg-lime py-4 text-ink">
         <div className="marquee">
-          {[...marquee, ...marquee].map((m, i) => (
+          {[...marquee, ...marquee, ...marquee, ...marquee].map((m, i) => (
             <span key={i} className="mx-6 flex items-center gap-6 font-display text-2xl font-bold whitespace-nowrap md:text-3xl">
               {m} <span className="text-ink/40">✦</span>
             </span>
