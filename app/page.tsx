@@ -24,12 +24,23 @@ const edu = [
   { t: "Inżynier — Zarządzanie i Inżynieria Produkcji, Zarządzanie Jakością", s: "Wyższa Szkoła Zarządzania Ochroną Pracy w Katowicach · 2020" },
 ];
 
-const certs = [
-  { t: "Inspektor Ochrony Przeciwpożarowej", s: "2024" },
-  { t: "Auditor Zintegrowanego Systemu Zarządzania", s: "ISO 9001, ISO 14001, ISO 45001 · 2020" },
-  { t: "Auditor Wewnętrzny Systemu Zarządzania Jakością", s: "ISO 9001:2015 · 2020" },
-  { t: "Organizacja bezpiecznej pracy na wysokości", s: "Kurs · 2021" },
-];
+
+type Job = (typeof jobs)[number];
+
+function JobCard({ x }: { x: Job }) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/[.02] px-6 py-5 transition hover:border-lime/40 hover:bg-white/[.04]">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-sm text-mist">{x.d}</p>
+        {x.now && <Tag live>Teraz</Tag>}
+        {x.bhp && <span className="text-xs uppercase tracking-widest text-amber">BHP</span>}
+      </div>
+      <p className="mt-2 font-display text-xl font-bold">{x.r}</p>
+      <p className="text-sm text-white/70">{x.f}</p>
+      {x.t && <p className="mt-2 text-sm text-mist">{x.t}</p>}
+    </div>
+  );
+}
 
 function Arrow() {
   return (
@@ -203,23 +214,18 @@ export default function Home() {
               Zaczynałem w 2018 roku jako doradca serwisowy w Scanii. Potem sprzedaż usług serwisowych w Scanii i Volvo Trucks, a dziś kluczowi klienci w Daimler Truck. Równolegle ponad 2 lata pracowałem jako starszy inspektor BHP — audyty, kontrole i szkolenia.
             </p>
           </Reveal>
-          <ol className="relative space-y-4 border-l border-white/10 pl-6">
-            {jobs.map((x, i) => (
-              <Reveal key={i} delay={i * 60}>
-                <li className="relative rounded-2xl border border-white/10 bg-white/[.02] px-6 py-5 transition hover:border-lime/40 hover:bg-white/[.04]">
-                  <span className={`absolute top-7 -left-[31px] h-2.5 w-2.5 rounded-full ${x.now ? "pulse-dot bg-lime" : x.bhp ? "bg-amber" : "bg-white/30"}`} />
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <p className="text-sm text-mist">{x.d}</p>
-                    {x.now && <Tag live>Teraz</Tag>}
-                    {x.bhp && <span className="text-xs uppercase tracking-widest text-amber">BHP</span>}
-                  </div>
-                  <p className="mt-2 font-display text-xl font-bold">{x.r}</p>
-                  <p className="text-sm text-white/70">{x.f}</p>
-                  {x.t && <p className="mt-2 text-sm text-mist">{x.t}</p>}
-                </li>
-              </Reveal>
-            ))}
-          </ol>
+          <div>
+            <JobCard x={jobs[0]} />
+            <details className="group/d mt-4">
+              <summary className="flex cursor-pointer list-none items-center justify-between rounded-2xl border border-white/10 px-6 py-5 text-mist transition hover:border-lime/40 hover:text-white [&::-webkit-details-marker]:hidden">
+                <span>Wcześniejsze doświadczenie ({jobs.length - 1})</span>
+                <span className="text-2xl leading-none text-lime transition-transform duration-300 group-open/d:rotate-45">+</span>
+              </summary>
+              <div className="mt-4 space-y-4">
+                {jobs.slice(1).map((x, i) => <JobCard key={i} x={x} />)}
+              </div>
+            </details>
+          </div>
         </div>
       </section>
 
@@ -227,12 +233,12 @@ export default function Home() {
       <section className="px-6 py-28">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <p className="text-sm uppercase tracking-[.3em] text-lime">Wykształcenie i uprawnienia</p>
+            <p className="text-sm uppercase tracking-[.3em] text-lime">Wykształcenie</p>
             <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight md:text-6xl">
-              mgr inż. <span className="outline-text">+ BHP + ISO</span>
+              mgr inż. <span className="outline-text">+ BHP</span>
             </h2>
           </Reveal>
-          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
+          <div className="mt-14 max-w-3xl">
             <Reveal>
               <Spot className="h-full p-8">
                 <Tag>Studia</Tag>
@@ -241,22 +247,6 @@ export default function Home() {
                     <li key={e.t}>
                       <p className="font-display text-lg font-bold">{e.t}</p>
                       <p className="text-sm text-mist">{e.s}</p>
-                    </li>
-                  ))}
-                </ul>
-              </Spot>
-            </Reveal>
-            <Reveal delay={120}>
-              <Spot className="h-full p-8">
-                <Tag>Uprawnienia i certyfikaty</Tag>
-                <ul className="mt-6 space-y-5">
-                  {certs.map((e) => (
-                    <li key={e.t} className="flex gap-4">
-                      <span className="mt-1 text-lime">✦</span>
-                      <div>
-                        <p className="font-display text-lg font-bold">{e.t}</p>
-                        <p className="text-sm text-mist">{e.s}</p>
-                      </div>
                     </li>
                   ))}
                 </ul>
