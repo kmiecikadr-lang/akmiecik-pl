@@ -1,7 +1,8 @@
 import Link from "next/link";
+import VisitCounter from "./VisitCounter";
 
-export const PHONE = "+48 788 441 244";
-export const TEL = "tel:+48788441244";
+export const PHONE = "+48 664 430 080";
+export const TEL = "tel:+48664430080";
 export const EMAIL = "adrian@akmiecik.pl";
 
 export default function Nav() {
@@ -27,9 +28,12 @@ export default function Nav() {
 
 export function Footer() {
   return (
-    <footer className="mx-auto mt-10 flex max-w-6xl flex-wrap justify-between gap-4 px-6 pb-10 text-sm text-mist">
+    <>
+    <footer className="mx-auto mt-10 flex max-w-6xl flex-wrap justify-between gap-4 px-6 pb-4 text-sm text-mist">
       <span>© {new Date().getFullYear()} Adrian Kmiecik</span>
       <span><a href={`mailto:${EMAIL}`} className="transition hover:text-lime">{EMAIL}</a> · Czeladź · Śląsk</span>
     </footer>
+    <VisitCounter />
+    </>
   );
 }

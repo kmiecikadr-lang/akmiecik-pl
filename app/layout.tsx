@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://akmiecik.pl"),
   title: "Adrian Kmiecik — sprzedaż B2B i produkty cyfrowe",
   description:
-    "Key Account Manager w branży ciężarowej. Buduję własne produkty: Smilerate, iAtlas, dbajOBHP. Zadzwoń: +48 788 441 244.",
+    "Key Account Manager w branży ciężarowej. Buduję własne produkty: Smilerate, iAtlas, dbajOBHP. Zadzwoń: +48 664 430 080.",
   openGraph: {
     title: "Adrian Kmiecik",
     description: "Sprzedaję. Buduję. Dowożę.",
