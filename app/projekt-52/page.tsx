@@ -40,7 +40,9 @@ export default function P52() {
                     {b.note && <p className="mt-2 text-sm text-white/80">{b.note}</p>}
                   </div>
                 </div>
-                {b.status === "czytam" ? (
+                {b.status === "w kolejce" ? (
+                  <span className="text-sm text-mist">W kolejce</span>
+                ) : b.status === "czytam" ? (
                   <span className="inline-flex items-center gap-2 rounded-full border border-amber/40 px-3 py-1 text-xs uppercase tracking-widest text-amber">
                     <span className="h-2 w-2 animate-pulse rounded-full bg-amber" /> Czytam
                   </span>

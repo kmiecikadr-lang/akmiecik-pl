@@ -1,40 +1,12 @@
-// Wpisy na blogu — najnowszy na górze. Akapity jako osobne elementy tablicy.
+import postsData from "@/content/posts.json";
+import booksData from "@/content/books.json";
+
+// Treści edytowane z panelu /admin (zapis do content/*.json w repozytorium).
 export type Post = { slug: string; title: string; date: string; excerpt: string; body: string[]; category?: "ai" };
+export type Book = { title: string; author: string; status: "czytam" | "przeczytana" | "w kolejce"; finished?: string; note?: string };
 
-export const posts: Post[] = [
-  {
-    slug: "jak-zbudowalem-te-strone-z-ai",
-    category: "ai",
-    title: "Jak zbudowałem tę stronę z AI",
-    date: "2026-11-25",
-    excerpt: "Jedno popołudnie, telefon w ręce i AI jako programista. Co zadziałało, a co musiałem poprawić.",
-    body: [
-      "Nie jestem programistą. Tę stronę zbudowałem, rozmawiając z AI — głównie z telefonu, między jednym a drugim zadaniem.",
-      "Zasada była prosta: ja mówię, co strona ma robić i jak ma brzmieć, AI pisze kod, wrzuca go na GitHub i pokazuje mi zrzuty ekranu. Ja oceniam i poprawiam.",
-      "Najwięcej pracy nie było w kodzie, tylko w treści. Pierwsze hasła brzmiały jak z reklamy, więc kazałem je przepisać tak, żeby wyglądały jak moje CV i wizytówka — konkretnie i po ludzku.",
-      "Wniosek: AI nie zastąpi wiedzy, kim jesteś i co chcesz powiedzieć. Ale zamienia dni pracy w godziny. W tej serii będę pokazywał takie przykłady — w sprzedaży, BHP i przy własnych projektach.",
-    ],
-  },
-  {
-    slug: "projekt-52-start",
-    title: "Projekt 52: rok, 52 książki",
-    date: "2026-11-30",
-    excerpt: "Jedna książka tygodniowo przez rok. Zaczynam od „12-tygodniowego roku”.",
-    body: [
-      "Mam w domu sporo książek o biznesie, sprzedaży i rozwoju. Czas je w końcu przeczytać — systematycznie, a nie „kiedyś”.",
-      "Zasada jest prosta: jedna książka tygodniowo, 52 w rok. Po każdej krótka notatka: co z niej biorę do pracy i do życia.",
-      "Na start „12-tygodniowy rok” — o planowaniu w krótkich cyklach zamiast rocznych postanowień. Pasuje idealnie, bo właśnie zaczynam swój pierwszy 12-tygodniowy plan.",
-      "Postępy na bieżąco w zakładce Projekt 52.",
-    ],
-  },
-];
-
-// Projekt 52 — status: "czytam" albo "przeczytana"
-export type Book = { title: string; author: string; status: "czytam" | "przeczytana"; finished?: string; note?: string };
-
-export const books: Book[] = [
-  { title: "12-tygodniowy rok", author: "Brian P. Moran, Michael Lennington", status: "czytam" },
-];
+export const posts = (postsData as Post[]).slice().sort((a, b) => b.date.localeCompare(a.date));
+export const books = booksData as Book[];
 
 export const fmtDate = (d: string) =>
   new Date(d).toLocaleDateString("pl-PL", { day: "numeric", month: "long", year: "numeric" });
